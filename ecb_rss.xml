@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Valūtu kursi</title>
+    <description><![CDATA[Eiropas Centrālās bankas publicētie eiro atsauces kursi]]></description>
+    <link>https://www.bank.lv/</link>
+    <lastBuildDate>Mon, 11 May 2020 18:42:02 +0300</lastBuildDate>
+    <generator>Joomla! - Open Source Content Management</generator>
+    <atom:link rel="self" type="application/rss+xml" href="/component/graph/?format=feed&amp;mode=exc&amp;view=graph&amp;ecb=true&amp;type=rss"/>
+    <image>
+      <url>https://www.bank.lv/images/latvijas_banka_smalllogo.gif</url>
+      <title>Valūtu kursi</title>
+      <link>https://www.bank.lv/</link>
+      <width>142</width>
+      <height>48</height>
+    </image>
+    <language>lv-LV</language>
+    <ttl>5</ttl>
+    <item>
+      <title>Eiropas Centrālās bankas publicētie eiro atsauces kursi. 6. May_LONG</title>
+      <link>https://www.bank.lv/</link>
+      <guid isPermaLink="false">https://www.bank.lv/#06.05</guid>
+      <description><![CDATA[AUD 1.70460000 BGN 1.95580000 BRL 6.08960000 CAD 1.52250000 CHF 1.05300000 CNY 7.67070000 CZK 26.98700000 DKK 7.46180000 GBP 0.87253000 HKD 8.37630000 HRK 7.56900000 HUF 349.59000000 IDR 16259.13000000 ILS 3.79140000 INR 81.98150000 ISK 159.30000000 JPY 114.65000000 KRW 1323.48000000 MXN 26.04850000 MYR 4.67130000 NOK 11.09000000 NZD 1.78390000 PHP 54.62000000 PLN 4.53940000 RON 4.82330000 RUB 80.77890000 SEK 10.62780000 SGD 1.53350000 THB 35.00400000 TRY 7.71780000 USD 1.08070000 ZAR 20.06030000 ]]></description>
+      <pubDate>Wed, 06 May 2020 03:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Eiropas Centrālās bankas publicētie eiro atsauces kursi. 7. May_LONG</title>
+      <link>https://www.bank.lv/</link>
+      <guid isPermaLink="false">https://www.bank.lv/#07.05</guid>
+      <description><![CDATA[AUD 1.67040000 BGN 1.95580000 BRL 6.22710000 CAD 1.51770000 CHF 1.05300000 CNY 7.64270000 CZK 27.15800000 DKK 7.46050000 GBP 0.87478000 HKD 8.35800000 HRK 7.56650000 HUF 349.36000000 IDR 16223.02000000 ILS 3.78810000 INR 81.76850000 ISK 159.10000000 JPY 114.91000000 KRW 1320.18000000 MXN 26.06770000 MYR 4.66310000 NOK 11.04050000 NZD 1.78200000 PHP 54.49700000 PLN 4.54670000 RON 4.82350000 RUB 79.58010000 SEK 10.62000000 SGD 1.53030000 THB 34.96900000 TRY 7.77920000 USD 1.07830000 ZAR 20.06980000 ]]></description>
+      <pubDate>Thu, 07 May 2020 03:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Eiropas Centrālās bankas publicētie eiro atsauces kursi. 8. May_LONG</title>
+      <link>https://www.bank.lv/</link>
+      <guid isPermaLink="false">https://www.bank.lv/#08.05</guid>
+      <description><![CDATA[AUD 1.66130000 BGN 1.95580000 BRL 6.30740000 CAD 1.51180000 CHF 1.05290000 CNY 7.67190000 CZK 27.25100000 DKK 7.45980000 GBP 0.87535000 HKD 8.40520000 HRK 7.55730000 HUF 349.38000000 IDR 16229.26000000 ILS 3.80310000 INR 81.96150000 ISK 158.50000000 JPY 115.34000000 KRW 1322.41000000 MXN 25.90230000 MYR 4.69940000 NOK 11.06950000 NZD 1.76680000 PHP 54.68100000 PLN 4.54820000 RON 4.82800000 RUB 79.83830000 SEK 10.58750000 SGD 1.53260000 THB 34.95800000 TRY 7.72520000 USD 1.08430000 ZAR 19.99700000 ]]></description>
+      <pubDate>Fri, 08 May 2020 03:00:00 +0300</pubDate>
+    </item>
+    <item>
+      <title>Eiropas Centrālās bankas publicētie eiro atsauces kursi. 11. May_LONG</title>
+      <link>https://www.bank.lv/</link>
+      <guid isPermaLink="false">https://www.bank.lv/#11.05</guid>
+      <description><![CDATA[AUD 1.67090000 BGN 1.95580000 BRL 6.26910000 CAD 1.51360000 CHF 1.05190000 CNY 7.67830000 CZK 27.60000000 DKK 7.45950000 GBP 0.87875000 HKD 8.38930000 HRK 7.56500000 HUF 349.84000000 IDR 16202.32000000 ILS 3.80720000 INR 82.09600000 ISK 158.70000000 JPY 116.16000000 KRW 1325.57000000 MXN 25.92010000 MYR 4.69110000 NOK 11.04600000 NZD 1.78080000 PHP 54.52700000 PLN 4.55910000 RON 4.83030000 RUB 79.69810000 SEK 10.59980000 SGD 1.53350000 THB 34.83700000 TRY 7.65960000 USD 1.08240000 ZAR 19.96000000 ]]></description>
+      <pubDate>Mon, 11 May 2020 03:00:00 +0300</pubDate>
+    </item>
+  </channel>
+</rss>
