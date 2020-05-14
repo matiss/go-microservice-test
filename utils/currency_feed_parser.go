@@ -39,6 +39,9 @@ func (f *CurrencyFeed) ParseItem(date string, content string) error {
 		return err
 	}
 
+	// Make sure time is using UTC timezone
+	pubAt = pubAt.UTC()
+
 	item := FeedItem{
 		Date: pubAt,
 	}

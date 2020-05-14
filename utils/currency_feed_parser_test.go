@@ -20,7 +20,7 @@ func TestParseItem(t *testing.T) {
 
 	// Iterate over feed items and parse currencies
 	for _, item := range rss2.Items {
-		err := feed.ParseItem(item.PubDate, string(item.Description))
+		err := feed.ParseItem(item.PubDate, item.Description)
 		if err != nil {
 			t.Error(err)
 		}
