@@ -11,10 +11,6 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-const (
-	currencyStoreFactor = 1000000
-)
-
 type CurrencyFeedService struct {
 	mysql        *MySQLService
 	url          string
@@ -145,8 +141,16 @@ func (s *CurrencyFeedService) Persist() error {
 	sess := s.mysql.Session()
 
 	timestamp := time.Now().UTC()
+	latestDate := time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC)
+	latestIndex := 0
 
-	for _, item := range s.pendingItems {
+	for i, item := range s.pendingItems {
+		// Get index for latest date
+		if item.Date.After(latestDate) {
+			latestDate = item.Date
+			latestIndex = i
+		}
+
 		// Insert timestamp in feed_updates table
 		_, err := sess.Exec("INSERT INTO feed_updates (updated_at, published_at) VALUES (?, ?);", timestamp, item.Date)
 		if err != nil {
@@ -165,7 +169,18 @@ func (s *CurrencyFeedService) Persist() error {
 		}
 	}
 
-	// // Clear pending items
+	// Update currencies_latest table with latest values
+	for _, currency := range s.pendingItems[latestIndex].Currencies {
+		// Convert float64 to int64. Stored in micro currency 0.000001
+		valueInt := int64(currency.Value * currencyStoreFactor)
+
+		_, err := sess.Exec("INSERT INTO currencies_latest (symbol, value) VALUES (?, ?) ON DUPLICATE KEY UPDATE value = ?;", currency.Symbol, valueInt, valueInt)
+		if err != nil {
+			return err
+		}
+	}
+
+	// Clear pending items
 	s.pendingItems = make([]utils.FeedItem, 0)
 
 	return nil

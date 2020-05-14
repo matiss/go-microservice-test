@@ -31,6 +31,23 @@ func main() {
 	// Setup currency feed service
 	currencyFeedService := services.NewCurrencyFeedService(mysqlService, feedURL)
 
+	// Setup currency service
+	currencyService := services.NewCurrencyService(mysqlService)
+
+	currencies, err := currencyService.BySymbol("PHP", 20)
+	if err != nil {
+		log.Println(err)
+	}
+
+	log.Printf("Values (PHP): %+v\n", currencies)
+
+	currencies, err = currencyService.Latest()
+	if err != nil {
+		log.Println(err)
+	}
+
+	log.Printf("Latest currencies: %+v\n", currencies)
+
 	// Fetch and parse currency feed
 	log.Println("Fetching latest currency feed")
 

@@ -79,5 +79,17 @@ func (s *MySQLService) Setup() error {
 		);
 	`)
 
+	s.db.MustExec(`
+		CREATE INDEX IF NOT EXISTS currencies_symbol_date_idx ON currencies (symbol, date);
+	`)
+
+	// Create currencies_latest
+	s.db.MustExec(`
+		CREATE TABLE IF NOT EXISTS currencies_latest (
+			symbol CHAR(3) PRIMARY KEY,
+			value BIGINT NULL DEFAULT NULL
+		);
+	`)
+
 	return nil
 }
