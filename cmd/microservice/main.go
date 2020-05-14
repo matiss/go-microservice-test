@@ -82,9 +82,9 @@ Usage:
   go-microservice [command]
 
 Available Commands:
-  update Fetch and update latest currencies
-  serve Start HTTP server
-  setup Setup database tables
+  update      Fetch and update latest currencies
+  serve       Start HTTP server
+  setup       Setup database tables
 
 `
 
