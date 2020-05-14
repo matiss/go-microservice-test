@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/matiss/go-microservice-test/server"
 	"github.com/matiss/go-microservice-test/services"
 )
 
@@ -25,7 +26,7 @@ func setup(mysqlService *services.MySQLService) error {
 }
 
 // Update currencies
-func update(mysqlService *services.MySQLService, currencyFeedService *services.CurrencyFeedService) error {
+func update(currencyFeedService *services.CurrencyFeedService) error {
 	// Fetch and parse currency feed
 	fmt.Println("Fetching latest currency feed")
 
@@ -55,22 +56,10 @@ func update(mysqlService *services.MySQLService, currencyFeedService *services.C
 	return nil
 }
 
-func serve(mysqlService *services.MySQLService, currencyService *services.CurrencyService) error {
+func serve(currencyService *services.CurrencyService) error {
 	fmt.Println("Starting HTTP server...")
 
-	currencies, err := currencyService.BySymbol("PHP", 20)
-	if err != nil {
-		log.Println(err)
-	}
-
-	fmt.Printf("Values (PHP): %+v\n", currencies)
-
-	currencies, err = currencyService.Latest()
-	if err != nil {
-		log.Println(err)
-	}
-
-	fmt.Printf("Latest currencies: %+v\n", currencies)
+	server.Run(currencyService)
 
 	return nil
 }
@@ -117,10 +106,10 @@ func main() {
 	switch os.Args[1] {
 	case "update":
 		// Run update command
-		update(mysqlService, currencyFeedService)
+		update(currencyFeedService)
 	case "serve":
 		// Run serve command
-		serve(mysqlService, currencyService)
+		serve(currencyService)
 	case "setup":
 		// Run setup command
 		setup(mysqlService)
