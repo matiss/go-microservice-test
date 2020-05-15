@@ -5,11 +5,11 @@ version = "1.0.0"
 feed_url = "https://www.bank.lv/vk/ecb_rss.xml"
 
 [http]
-address = "127.0.0.1:3035"
+address = "0.0.0.0:3035"
 rate_limit = 120
 
 [mysql]
-address = "tcp(127.0.0.1:3306)"
+address = "tcp(192.168.1.69:3306)"
 database = "go_microservice_test"
 user = "root"
 password = "12345678"
