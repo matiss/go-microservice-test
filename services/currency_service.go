@@ -44,6 +44,8 @@ func (s *CurrencyService) BySymbol(symbol string, limit int) ([]Currency, error)
 	// Make sure symbol is not empty string
 	if symbol == "" {
 		return nil, fmt.Errorf("symbol is required")
+	} else if len(symbol) != 3 {
+		return nil, fmt.Errorf("Invalid symbol length")
 	}
 
 	// Constraint limit

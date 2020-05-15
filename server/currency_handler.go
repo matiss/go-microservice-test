@@ -28,6 +28,12 @@ func (h *CurrencyHandler) Latest(c *fiber.Ctx) {
 	currencies, err := h.currencyService.Latest()
 	if err != nil {
 		log.Println(err)
+
+		c.JSON(ErrorResponse{
+			ID:      "Latest",
+			Message: err.Error(),
+		})
+		return
 	}
 
 	// Map results
@@ -62,6 +68,12 @@ func (h *CurrencyHandler) BySymbol(c *fiber.Ctx) {
 	currencies, err := h.currencyService.BySymbol(symbol, limit)
 	if err != nil {
 		log.Println(err)
+
+		c.JSON(ErrorResponse{
+			ID:      "BySymbol",
+			Message: err.Error(),
+		})
+		return
 	}
 
 	// Map results

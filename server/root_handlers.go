@@ -4,6 +4,11 @@ import (
 	"github.com/gofiber/fiber"
 )
 
+type ErrorResponse struct {
+	ID      string `json:"id"`
+	Message string `json:"message"`
+}
+
 func RootHandler(c *fiber.Ctx) {
 	c.JSON(
 		map[string]interface{}{
