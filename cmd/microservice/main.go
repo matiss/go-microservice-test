@@ -9,8 +9,8 @@ import (
 	"github.com/matiss/go-microservice-test/services"
 )
 
-const (
-	feedURL = "https://www.bank.lv/vk/ecb_rss.xml"
+var (
+	flConfigFile = "./config.toml"
 )
 
 // Setup database tables
@@ -56,10 +56,10 @@ func update(currencyFeedService *services.CurrencyFeedService) error {
 	return nil
 }
 
-func serve(currencyService *services.CurrencyService) error {
+func serve(config *services.ConfigService, currencyService *services.CurrencyService) error {
 	fmt.Println("Starting HTTP server...")
 
-	server.Run(currencyService)
+	server.Run(config, currencyService)
 
 	return nil
 }
@@ -88,8 +88,20 @@ func main() {
 		return
 	}
 
+	// Load config file
+	config := &services.ConfigService{}
+	err := config.Load(flConfigFile)
+	if err != nil {
+		panic(err)
+	}
+
 	// Setup MySQL service
-	mysqlService, err := services.NewMySQLService("root", "12345678", "tcp(127.0.0.1:3306)", "go_microservice_test")
+	mysqlService, err := services.NewMySQLService(
+		config.MySQL.User,
+		config.MySQL.Password,
+		config.MySQL.Address,
+		config.MySQL.Database,
+	)
 	if err != nil {
 		panic(err)
 	}
@@ -98,7 +110,7 @@ func main() {
 	defer mysqlService.Close()
 
 	// Setup currency feed service
-	currencyFeedService := services.NewCurrencyFeedService(mysqlService, feedURL)
+	currencyFeedService := services.NewCurrencyFeedService(mysqlService, config.FeedURL)
 
 	// Setup currency service
 	currencyService := services.NewCurrencyService(mysqlService)
@@ -109,7 +121,7 @@ func main() {
 		update(currencyFeedService)
 	case "serve":
 		// Run serve command
-		serve(currencyService)
+		serve(config, currencyService)
 	case "setup":
 		// Run setup command
 		setup(mysqlService)

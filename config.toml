@@ -1,0 +1,17 @@
+app_name = "go-microservice"
+version = "1.0.0"
+
+# Currency feed URL
+feed_url = "https://www.bank.lv/vk/ecb_rss.xml"
+
+[http]
+address = "127.0.0.1:3035"
+rate_limit = 120
+
+[mysql]
+address = "tcp(127.0.0.1:3306)"
+database = "go_microservice_test"
+user = "root"
+password = "12345678"
+pool_size = 5
+

@@ -12,13 +12,16 @@ import (
 	"github.com/matiss/go-microservice-test/services"
 )
 
-func Run(currencyService *services.CurrencyService) {
+func Run(config *services.ConfigService, currencyService *services.CurrencyService) {
 	ctx := context.Background()
 
 	s := fiber.New()
 
 	// Set prefork
 	s.Settings.Prefork = false
+
+	// Disable startup message
+	s.Settings.DisableStartupMessage = true
 
 	// Recover middleware
 	s.Use(recover.New(recover.Config{
@@ -32,7 +35,7 @@ func Run(currencyService *services.CurrencyService) {
 	// Create a rate limiter struct.
 	rateLimiter := limiter.Config{
 		Timeout: 1,
-		Max:     20,
+		Max:     config.HTTP.RateLimit,
 	}
 	s.Use(limiter.New(rateLimiter))
 
@@ -61,5 +64,5 @@ func Run(currencyService *services.CurrencyService) {
 	s.Get("/robots.txt", RobotsTXTHandler)
 
 	// Start server
-	s.Listen("127.0.0.1:3035")
+	s.Listen(config.HTTP.Address)
 }
