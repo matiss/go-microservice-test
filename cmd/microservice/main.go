@@ -35,12 +35,12 @@ func update(currencyFeedService *services.CurrencyFeedService) error {
 		log.Println(err)
 	}
 
+	// Check if feed data needs to be stored in database
 	ok, err := currencyFeedService.Check()
 	if err != nil {
 		log.Println(err)
 	}
 
-	// Check if feed data needs to be stored in database
 	if ok {
 		// Store feed data in database
 		err := currencyFeedService.Persist()
@@ -64,7 +64,8 @@ func serve(config *services.ConfigService, currencyService *services.CurrencySer
 	return nil
 }
 
-const infoText = `
+func printInfo() {
+	fmt.Println(`
 Go Microservice Test
 
 Usage:
@@ -74,11 +75,7 @@ Available Commands:
   update      Fetch and update latest currencies
   serve       Start HTTP server
   setup       Setup database tables
-
-`
-
-func printInfo() {
-	fmt.Println(infoText)
+	`)
 }
 
 func main() {
