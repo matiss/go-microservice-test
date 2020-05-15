@@ -47,7 +47,7 @@ func (s *CurrencyService) BySymbol(symbol string, limit int) ([]Currency, error)
 	}
 
 	// Constraint limit
-	if limit == 0 {
+	if limit <= 0 {
 		limit = 10
 	} else if limit > 100 {
 		limit = 100
