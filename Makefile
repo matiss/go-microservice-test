@@ -41,7 +41,13 @@ setup:
 	go run ./cmd/microservice/main.go setup
 
 run-docker:
-	docker run -d -p 3035:3035 $(PACKAGE_NAME)
+	docker run -d -p 3035:3035 --name $(PACKAGE_NAME) $(PACKAGE_NAME)
+
+start-docker:
+	docker start $(PACKAGE_NAME)
+
+stop-docker:
+	docker stop $(PACKAGE_NAME)
 
 test:
 	-@$(ECHO) "\n\033[0;35m%%% Running tests\033[0m"
